@@ -1,11 +1,4 @@
-# python-testing
-python scripts i create to learn, nothing special
+# Odd
+this is a script that test some math stuff, i forgot the name, i've made this script a while ago, i thought it was interesting
 
-branches are different scripts
-
-## game-testing | specific
-this script requires enquiries (pip install enquiries)
-
-i'm testing how to make text-based games with python, so far i've done significant progress regarding the 'engine', still has a lot of room for improvements, specially with reading save files
-
-the script is well-commented, explains a lot of what i've coded and the code perspective (aka knowing wtf is going on)
+the main script lets you use infinite numbers (or the numbers python allows you to use), odd limites to between 1 and 10
