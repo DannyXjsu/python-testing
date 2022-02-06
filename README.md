@@ -1,5 +1,4 @@
-## game-testing | developtment
-THIS BRANCH IS THE DEVELOPMENT BRANCH OF GAME TESTING, this is where I'll commit minor changes and when a major version releases it will go to the default game-testing branch
+## game-testing
 
 this script requires enquiries (pip install enquiries)
 
