@@ -1,3 +1,4 @@
+import os.path
 # This is my own file manager, it doesn't copy or moves files to places, it's just a read and write system,
 # mainly for saving and load save game files (currently the only thing I want it to do, but maybe in the future I'll
 # make it more advanced). The way python works with files is really terrible and hard to read, so I'll make my own
@@ -12,10 +13,32 @@
 # find and get what comes after it in a line. In conjunction with find get_definition, it reads line by line trying
 # to find a 'definition' (basically how pName is equals to the player name), it finds a string (pName for example)
 # and finds what it's being defined to (the player name) and then returns the results.
-def isolate(line, char_remove):  # Isolates a string in a certain line
-    isolated_value = (line.rsplit(char_remove)[1]).strip()  # The isolation process (finds a reference for the
+
+
+def isolate(line_or_list, char_split):  # Isolates a string in a certain line
+    isolated_value = (line_or_list.rsplit(char_split)[1]).strip()  # The isolation process (finds a reference for the
     # string and removes spaces or new lines that might come with what it finds)
     return isolated_value
+
+
+def create(file_path, file_name, file_ext):
+    if not os.path.exists(file_path):
+        os.makedirs(file_path)
+    with open((file_path + file_name + '.' + file_ext), 'a+') as file:
+        file.close()
+
+
+def write(file_path, file_name, file_ext, string):
+    with open((file_path + file_name + '.' + file_ext), 'w') as file:
+        file.write(string)
+        file.close()
+
+
+def read(file_path, file_name, file_ext, line):
+    with open((file_path + file_name + '.' + file_ext), 'rt') as file:
+        string = file.readline(line)
+        file.close()
+    return string
 
 
 # This is still in testing, might be extremely broken, in the future I might completely change this. How it works is

@@ -12,19 +12,25 @@ import fileman
 # These are temporary, they are only used to parse the information to the game class, the reason why I made it this way
 # it's because it's easier to do it on the top of the file, and it's more readable with how classes look like
 game_name = "RPG-Test"
-game_ver = 0.1
+game_devel_mode = False
+game_ver = 0.2
 game_ver_stage = 'alpha'
-game_info_format = "{} v{}-{}".format(game_name, game_ver, game_ver_stage)
 game_file_name_ext = os.path.basename(__file__)
 game_file_name = game_file_name_ext[:-3]
 
-sPlayerName = ""  # NOTE: Might become obsolete
-# String utilities
-# Things that I got tired of doing and made a different way that seems more readable to me (for
-# example; spaces between variables in a string, instead of " " I can just call the s_space variable), if you think
-# that's absurd of confusing, just replace every variable with corresponding function and erase the variable
-# definition below.
-s_space = " "
+# Developer versions
+if game_devel_mode:
+    if not os.path.exists('devel/devel_staging.ver'):
+        fileman.create('devel/', 'devel_staging', 'ver')
+    game_ver_devel = (fileman.read('devel/', 'devel_staging', 'ver', 1)).strip()
+    print(game_ver_devel)
+    game_ver_devel = int(float(game_ver_devel))
+    game_ver_devel += 1
+    fileman.write('devel/', 'devel_staging', 'ver', str(game_ver_devel))
+
+    game_info_format = "{} v{}.{}-{}-devel".format(game_name, game_ver, game_ver_devel, game_ver_stage)
+else:
+    game_info_format = "{} v{}-{}".format(game_name, game_ver, game_ver_stage)
 
 
 class Game:  # Game class, might seem weird doing a game class, but I think it makes everything more readable (ignore
