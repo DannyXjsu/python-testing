@@ -16,6 +16,6 @@ warning: i've tried many solutions, but this is impossible to run on windows, en
 Version Alpha 0.2
 >Improved loading save games and file managing
 >
-> - Code is more readable due to new file managing
 > - New flexible file reading library made specifically for the game (not recommended for other uses)
-> - Higly commented new library, in the future I'll cut down the comments and leave only the essential
+> - Code is more readable due to new file managing
+> - Highly commented new library, in the future I'll cut down the comments and leave only the essential
