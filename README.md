@@ -11,8 +11,12 @@ warning: i've tried many solutions, but this is impossible to run on windows, en
 
 ### Changelog
 Version Alpha 0.2
->Improved loading save games and file managing
+>Improved file managing and added development options
 >
 > - New flexible file reading library made specifically for the game (not recommended for other uses)
 > - Code is more readable due to new file managing
 > - Highly commented new library, in the future I'll cut down the comments and leave only the essential
+> - Read and write functionality (still in development, has only use for save files and simple files)
+> - New development options mainly used for the dev branch, changes version format to include minor versions for each run
+
+Note: if you want to use the development options, you set the game_devel_mode to true, in the first run it might crash, but it's okay, it creates a file in devel, edit the file and add a 0, run a second time and it should be fine, in the future, this process will be automatic
