@@ -5,6 +5,8 @@ import enquiries
 
 import os.path
 
+import fileman
+
 # Game information
 # Contains the name of the game, the version, the stage of the version
 # These are temporary, they are only used to parse the information to the game class, the reason why I made it this way
@@ -58,19 +60,11 @@ class Game:  # Game class, might seem weird doing a game class, but I think it m
             saveFile.close()
 
     # This is still in testing, might be extremely broken, in the future I might completely change this
-    def load(self, save_name):  # This is my own method of reading a file, it was very confusing getting it to work
+    def load(self, save_name):
         savePath = 'save/{}.sav'.format(save_name)  # Sets the save path to a name parsed into the function
-        with open(savePath, 'rt') as saveFile:
-            for i in saveFile.readlines():  # Reads each line, 'i' is used as an index, technically it is what line
-                # the function is reading
-                if 'pName' in i:  # Pretty straight forward, if it finds the string in a certain line, do the following
-                    player.name = (i.rsplit('=')[1]).strip()  # Gets whatever comes after '=' in the line and removes
-                    # \n and spaces
-                elif 'pGender' in i:
-                    player.gender = (i.rsplit('=')[1]).strip()
-                elif 'pAge' in i:
-                    player.age = (i.rsplit('=')[1]).strip()
-            saveFile.close()
+        player.name = fileman.get_definition(savePath, 'pName', '=')
+        player.gender = fileman.get_definition(savePath, 'pGender', '=')
+        player.age = fileman.get_definition(savePath, 'pAge', '=')
 
     def exit(self):
         if enquiries.confirm("Are you sure you want to exit the game?"):
